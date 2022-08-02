@@ -1,0 +1,26 @@
+{
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules"],
+  "files": ["src/index.ts"],
+  "compilerOptions": {
+    "module": "es2022",
+    "target": "es2022",
+    "composite": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "moduleResolution": "node",
+    "declaration": true,
+    "declarationMap": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "types": ["node"],
+    "allowJs": true,
+    "checkJs": false,
+    // strict
+    "strict": false,
+    "noImplicitAny": false
+  }
+}

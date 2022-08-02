@@ -5,7 +5,7 @@ version = "0.0.0"
 [addresses]
 Std = "0x1"
 AptosFramework = "0x1"
-Switchboard = "0xb68fc782f172f8df315814d"
+Switchboard = "0xb68fc782f172f8df315814d25a0d80712e7543c168e596edc72cc3b163677375"
 Demo = "_"
 
 [dependencies]
@@ -16,4 +16,4 @@ AptosStdlib = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "
 Switchboard = { local = "../../switchboard-aptos/switchboard"}
 
 [dev-addresses]
-Demo = "0x4"
+Switchboard = "0x3"
