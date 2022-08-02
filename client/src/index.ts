@@ -3,6 +3,14 @@ import { AptosClient, AptosAccount, Types, FaucetClient } from "aptos";
 const NODE_URL = "https://fullnode.devnet.aptoslabs.com";
 const FAUCET_URL = "https://faucet.devnet.aptoslabs.com";
 
+// aggregator address registered with state address
+const AGGREGATOR_ADDRESS =
+  "0xcb5de0e03c5c7da8b91cbec9f30992d811271d906b6eb629fe7a71703660d28f";
+
+// @TODO: change the following after
+const DEMO_ADDRESS =
+  "0x5032bdd3e9f7ec0c3bb771319b7a882821bf41004cae6ecea16e2605e33e2563";
+
 /**
  * Sends and waits for an aptos tx to be confirmed
  * @param client
@@ -56,12 +64,6 @@ export async function sendAptosTx(
   return transactionRes.hash;
 }
 
-// aggregator address registered with state address
-const aggregator_address =
-  "0xcb5de0e03c5c7da8b91cbec9f30992d811271d906b6eb629fe7a71703660d28f";
-const demo_address =
-  "0x969167c768f1da942f6b6010cf275f196343618530bdd6d23e25896a7ba3c7d2";
-
 const client = new AptosClient(NODE_URL);
 const faucetClient = new FaucetClient(NODE_URL, FAUCET_URL);
 const acct = new AptosAccount();
@@ -70,21 +72,25 @@ await faucetClient.fundAccount(acct.address(), 5000);
 const agg_add = await sendAptosTx(
   client,
   acct,
-  `${demo_address}::demo_app::add_aggregator_info`,
-  [aggregator_address]
+  `${DEMO_ADDRESS}::demo_app::log_aggregator_info`,
+  [AGGREGATOR_ADDRESS]
 );
 
+console.log(`tx hash: ${agg_add}`);
+
 console.log(
-  `check out the successful tx at: https://explorer.devnet.aptos.dev/account/${agg_add}`
+  `check out the resource with the aggregator value at: https://explorer.devnet.aptos.dev/account/${acct
+    .address()
+    .hex()}`
 );
 
 async function loadData(): Promise<any> {
   return (
     await client.getAccountResource(
       acct.address().hex(),
-      `${demo_address}::demo_app::AggregatorInfo`
+      `${DEMO_ADDRESS}::demo_app::AggregatorInfo`
     )
   ).data;
 }
 
-console.log(await loadData());
+console.log("Aggregator Info: ", await loadData());
