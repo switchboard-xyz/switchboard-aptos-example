@@ -74,7 +74,9 @@ const agg_add = await sendAptosTx(
   [aggregator_address]
 );
 
-console.log(agg_add);
+console.log(
+  `check out the successful tx at: https://explorer.devnet.aptos.dev/account/${agg_add}`
+);
 
 async function loadData(): Promise<any> {
   return (

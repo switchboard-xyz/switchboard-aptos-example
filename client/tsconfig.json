@@ -1,26 +1,20 @@
 {
-  "include": ["./src/**/*"],
-  "exclude": ["node_modules"],
-  "files": ["src/index.ts"],
   "compilerOptions": {
-    "module": "es2022",
-    "target": "es2022",
-    "composite": true,
-    "sourceMap": true,
-    "inlineSources": true,
-    "moduleResolution": "node",
-    "declaration": true,
-    "declarationMap": true,
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
+    "module": "ESNext",
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "types": ["node"],
-    "allowJs": true,
-    "checkJs": false,
-    // strict
-    "strict": false,
-    "noImplicitAny": false
-  }
+    "target": "ESNext",
+    "moduleResolution": "Node",
+    "outDir": "dist",
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "isolatedModules": false,
+    "strict": true,
+    "noImplicitAny": true,
+    "useUnknownInCatchVariables": false,
+    "inlineSourceMap": true
+  },
+  "ts-node": {
+    "esm": true
+  },
+  "lib": ["esnext"]
 }

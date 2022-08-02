@@ -13,7 +13,7 @@ Demo = "_"
 MoveStdlib = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/move-stdlib/", rev = "main" }
 AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-framework/", rev = "main" }
 AptosStdlib = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-stdlib/", rev = "main" }
-Switchboard = { local = "../../switchboard-aptos/switchboard"}
+Switchboard = { git = "https://github.com/switchboard-xyz/switchboard-aptos-public.git", subdir = "switchboard/", rev = "main" }
 
 [dev-addresses]
 Switchboard = "0x3"
