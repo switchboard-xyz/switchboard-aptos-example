@@ -37,4 +37,14 @@ module Demo::demo_app {
             latest_result_decimal: dec
         });
     }    
+
+    #[test(account = @0x1)]
+    public entry fun test_aggregator(account: &signer) {
+
+        // creates test aggregator with data
+        Aggregator::new_test(account);
+
+        // print out value
+        std::debug::print(&Aggregator::get_latest_value(signer::address_of(account)));
+    }
 }

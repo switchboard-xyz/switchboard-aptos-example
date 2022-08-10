@@ -5,15 +5,20 @@ version = "0.0.0"
 [addresses]
 Std = "0x1"
 AptosFramework = "0x1"
-Switchboard = "0xb68fc782f172f8df315814d25a0d80712e7543c168e596edc72cc3b163677375"# Will change as we iterate on devnet
+Switchboard = "0xd54826ebe5d95ba37fc6324cbac43cbfc5293fcea37dd2615246053a10229ba4"# Will change as we iterate on devnet
 Demo = "_"
 
 [dependencies]
 # MoveNursery = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/move-stdlib/nursery/", rev = "main" }
 MoveStdlib = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/move-stdlib/", rev = "main" }
-AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-framework/", rev = "main" }
+AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-framework/", rev = "908aff867fcc1e1b12f058d474329097ab96f14b" }
 AptosStdlib = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-stdlib/", rev = "main" }
-Switchboard = { git = "https://github.com/switchboard-xyz/switchboard-aptos-public.git", subdir = "switchboard/", rev = "main" }
+
+[dependencies.Switchboard]
+git = "https://github.com/switchboard-xyz/switchboard-aptos-public.git"
+subdir = "switchboard/"
+rev = "add-test-fn"
 
 [dev-addresses]
 Demo = "0x4"
+
